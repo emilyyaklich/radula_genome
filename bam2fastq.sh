@@ -24,8 +24,8 @@ cd "$input_dir"
 
 bam2fastq -o fastq/m84238_250602_204739_s1  KQT_123/m84238_250602_204739_s1.hifi_reads.bam
 
-bam2fastq -o fastq/m84238_250606_184551_s1  KQT139/m84238_250606_184551_s1.hifi_reads.bam
+bam2fastq -o fastq/m84238_250606_184551_s1  KQT_139/m84238_250606_184551_s1.hifi_reads.bam
 
-bam2fastq -o fastq/m84238_250703_051833_s4 KQT139/m84238_250703_051833_s4.hifi_reads.bam
+bam2fastq -o fastq/m84238_250703_051833_s4 KQT_139/m84238_250703_051833_s4.hifi_reads.bam
 
-bam2fastq -o fastq/m84238_250703_072150_s1 KQT139/m84238_250703_072150_s1.hifi_reads.bam
+bam2fastq -o fastq/m84238_250703_072150_s1 KQT_139/m84238_250703_072150_s1.hifi_reads.bam
