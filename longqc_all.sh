@@ -3,7 +3,7 @@
 #SBATCH --partition=batch            
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=50
-#SBATCH --mem=100gb                    
+#SBATCH --mem=200gb                    
 #SBATCH --time=120:00:00             
 #SBATCH --output=job_logs/%x.%j.out            
 #SBATCH --error=job_logs/%x.%j.err             
@@ -28,5 +28,11 @@ longQC_dir=$2
 
 # loop thorugh all my fastq files
 for fq in "${input_dir}/fastq/"*.fastq.gz; do
-    python "${longQC_dir}/longQC.py" sampleqc -p 50 -x pb-hifi --output "${input_dir}/longqc" "$fq"
+
+    sample=$(basename "$fq" .fastq.gz)
+
+    output_dir="${input_dir}/longqc/${sample}"
+
+    # run LongQC
+    python "${longQC_dir}/longQC.py" sampleqc -p 16 -x pb-hifi -i 2G --output "$output_dir" "$fq"
 done
