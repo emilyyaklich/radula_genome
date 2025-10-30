@@ -15,11 +15,14 @@
 
 # run busco
 
+
+cd /scratch/ely67071/radula_data/busco
+
 ml BUSCO/5.8.3-foss-2023a
 
 
 input_dir=$1
 
-busco -i "${input_dir}/hifiasm/radula.asm.p_ctg.fa" -l embryophyta_odb10 -o "${input_dir}/busco/radula_busco_1pass" -m genome -c 32
+busco -i "${input_dir}/hifiasm/radula.asm.p_ctg.fa" -l embryophyta_odb10 -o radula_busco_1pass -m genome -c 32 -f
 
-generate_plot.py -wd "${input_dir}/busco/radula_busco_1pass"
+generate_plot.py -wd radula_busco_1pass

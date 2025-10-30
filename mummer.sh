@@ -1,10 +1,10 @@
 #!/bin/bash
 #SBATCH --job-name=mummer
-#SBATCH --partition=batch           
+#SBATCH --partition=batch_30d           
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=50
 #SBATCH --mem=500gb                    
-#SBATCH --time=168:00:00             
+#SBATCH --time=720:00:00             
 #SBATCH --output=job_logs/%x.%j.out            
 #SBATCH --error=job_logs/%x.%j.err             
 
