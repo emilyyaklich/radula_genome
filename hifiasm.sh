@@ -2,8 +2,8 @@
 #SBATCH --job-name=hifiasm
 #SBATCH --partition=batch           
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=64
-#SBATCH --mem=500gb                    
+#SBATCH --cpus-per-task=32
+#SBATCH --mem=700gb                    
 #SBATCH --time=168:00:00             
 #SBATCH --output=job_logs/%x.%j.out            
 #SBATCH --error=job_logs/%x.%j.err             
@@ -30,4 +30,4 @@ input_dir=$1
 
 ## 10-28-2025 run a haplotype phased assembly using the new omniC data
 
-hifiasm -o "${input_dir}/hifiasm_omniC/radula.asm" -t 64 "${input_dir}/radula_seq_data_fastq.gz" --h1 "${input_dir}/radula_omniC_R1.fastq.gz" --h2 "${input_dir}/radula_omniC_R2.fastq.gz" 
+hifiasm -o "${input_dir}/hifiasm_omniC/radula.asm" -t 32 "${input_dir}/radula_seq_data_fastq.gz" --h1 "${input_dir}/radula_omniC_R1.fastq.gz" --h2 "${input_dir}/radula_omniC_R2.fastq.gz" 

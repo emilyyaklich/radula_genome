@@ -22,14 +22,19 @@ input_dir=$1
 
 
 # run nucmer to align the assembly against itself
-nucmer --maxmatch -l 100 -c 500 -t 50 -p "${input_dir}/mummer/radula_self" "${input_dir}/hifiasm/radula.asm.p_ctg.fa" "${input_dir}/hifiasm/radula.asm.p_ctg.fa"
+#nucmer --maxmatch -l 100 -c 500 -t 50 -p "${input_dir}/mummer/radula_self" "${input_dir}/hifiasm/radula.asm.p_ctg.fa" "${input_dir}/hifiasm/radula.asm.p_ctg.fa"
+
+
+# run nucmer to align the two haplotypes
+nucmer --maxmatch -l 100 -c 500 -t 50 -p "${input_dir}/mummer_omniC/radula_haps" "${input_dir}/hifiasm_omniC/radula.asm.hic.hap1.p_ctg.fa" "${input_dir}/hifiasm_omniC/radula.asm.hic.hap2.p_ctg.fa"
+
 
 # delta filter to keep the highest scoring alignment from each 1-to-1
-delta-filter -1 "${input_dir}/mummer/radula_self.delta" > "${input_dir}/mummer/radula_self.1to1.delta"
+delta-filter -1 "${input_dir}/mummer_omniC/radula_haps.delta" > "${input_dir}/mummer_omniC/radula_haps.1to1.delta"
 
 # plot the alignment (dotplot)
-mummerplot --png --large --layout -p "${input_dir}/mummer/radula_self" "${input_dir}/mummer/radula_self.1to1.delta"
+mummerplot --png --large --layout -p "${input_dir}/mummer_omniC/radula_haps" "${input_dir}/mummer_omniC/radula_haps.1to1.delta"
 
 # get a table of filtered coordinates 
-show-coords -rcl "${input_dir}/mummer/radula_self.1to1.delta" > "${input_dir}/mummer/radula_self.1to1.coords"
+show-coords -rcl "${input_dir}/mummer_omniC/radula_haps.1to1.delta" > "${input_dir}/mummer_omniC/radula_haps.1to1.coords"
 
