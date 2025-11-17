@@ -16,13 +16,18 @@
 # run busco
 
 
-cd /scratch/ely67071/radula_data/busco
+cd /scratch/ely67071/radula_data/busco_omniC/pre_scaffolding
 
 ml BUSCO/5.8.3-foss-2023a
 
 
 input_dir=$1
 
-busco -i "${input_dir}/hifiasm/radula.asm.p_ctg.fa" -l embryophyta_odb10 -o radula_busco_1pass -m genome -c 32 -f
+#busco -i "${input_dir}/hifiasm_omniC/radula.asm.hic.hap1.p_ctg.fa" -l embryophyta_odb10 -o radula_busco_prescaffold_hap1 -m genome -c 32 -f
 
-generate_plot.py -wd radula_busco_1pass
+#generate_plot.py -wd radula_busco_prescaffold_hap1
+
+
+busco -i "${input_dir}/hifiasm_omniC/radula.asm.hic.hap2.p_ctg.fa" -l embryophyta_odb10 -o radula_busco_prescaffold_hap2 -m genome -c 32 -f
+
+generate_plot.py -wd radula_busco_prescaffold_hap2

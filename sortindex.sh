@@ -4,11 +4,13 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=64
 #SBATCH --mem=200gb
-#SBATCH --time=24:00:00
+#SBATCH --time=168:00:00
 #SBATCH --output=job_logs/%x.%j.out
 #SBATCH --error=job_logs/%x.%j.err
 #SBATCH --mail-user=ely67071@uga.edu
 #SBATCH --mail-type=ALL
+
+# 11-11-2025
 
 ml SAMtools/1.6-GCC-12.3.0
 ml BWA/0.7.18-GCCcore-13.3.0
@@ -37,5 +39,11 @@ align_haplotype() {
 }
 
 # Run for hap1 and hap2
-align_haplotype "${input_dir}/hifiasm_omniC/radula.asm.hic.hap1.p_ctg.fa"
-align_haplotype "${input_dir}/hifiasm_omniC/radula.asm.hic.hap2.p_ctg.fa"
+#align_haplotype "${input_dir}/hifiasm_omniC/radula.asm.hic.hap1.p_ctg.fa"
+#align_haplotype "${input_dir}/hifiasm_omniC/radula.asm.hic.hap2.p_ctg.fa"
+
+
+# index genome haplotype fasta file as well (needed to run YaHS)
+
+#samtools faidx "${input_dir}/hifiasm_omniC/radula.asm.hic.hap1.p_ctg.fa"
+samtools faidx "${input_dir}/hifiasm_omniC/radula.asm.hic.hap2.p_ctg.fa"
