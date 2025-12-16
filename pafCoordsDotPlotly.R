@@ -1,5 +1,7 @@
 #!/usr/bin/env Rscript
 
+# this script has been modified from: https://github.com/tpoorten/dotPlotly/blob/master/pafCoordsDotPlotly.R
+
 ## Make Dot Plot with Percent Divergence on color scale
 suppressPackageStartupMessages(library(optparse))
 suppressPackageStartupMessages(library(ggplot2))
