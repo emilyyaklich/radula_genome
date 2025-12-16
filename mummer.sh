@@ -44,17 +44,17 @@ input_dir=$1
 ## run mummer on the scaffolded haplotypes "${input_dir}/yahs/radula_hap1_yahs_scaffolds_final.fa"
 
 
-nucmer --maxmatch -l 100 -c 500 -t 50 -p "${input_dir}/mummer_omniC/scaffold/radula_haps_scaffold" "${input_dir}/yahs/radula_hap1_yahs_scaffolds_final.fa" "${input_dir}/yahs/radula_hap2_yahs_scaffolds_final.fa"
+#nucmer --maxmatch -l 100 -c 500 -t 50 -p "${input_dir}/mummer_omniC/scaffold/radula_haps_scaffold" "${input_dir}/yahs/radula_hap1_yahs_scaffolds_final.fa" "${input_dir}/yahs/radula_hap2_yahs_scaffolds_final.fa"
 
 
 # delta filter to keep the highest scoring alignment from each 1-to-1
-delta-filter -1 "${input_dir}/mummer_omniC/scaffold/radula_haps_scaffold.delta" > "${input_dir}/mummer_omniC/scaffold/radula_haps_scaffold.1to1.delta"
+#delta-filter -1 "${input_dir}/mummer_omniC/scaffold/radula_haps_scaffold.delta" > "${input_dir}/mummer_omniC/scaffold/radula_haps_scaffold.1to1.delta"
 
 # plot the alignment (dotplot)
 mummerplot --png --large --layout -p "${input_dir}/mummer_omniC/scaffold/radula_haps_scaffold" "${input_dir}/mummer_omniC/scaffold/radula_haps_scaffold.1to1.delta"
 
 # get a table of filtered coordinates
-show-coords -rcl "${input_dir}/mummer_omniC/scaffold/radula_haps_scaffold.1to1.delta" > "${input_dir}/mummer_omniC/scaffold/radula_haps_scaffold.1to1.coords"
+#show-coords -rcl "${input_dir}/mummer_omniC/scaffold/radula_haps_scaffold.1to1.delta" > "${input_dir}/mummer_omniC/scaffold/radula_haps_scaffold.1to1.coords"
 
 
 
